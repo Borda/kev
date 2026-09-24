@@ -11,7 +11,11 @@ import torch
 
 mx = pytest.importorskip("mlx.core")
 pytest.importorskip("mlx_lm")
-pytestmark = pytest.mark.skipif(platform.system() != "Darwin" or platform.machine() != "arm64", reason="MLX runs on Apple Silicon only")
+# Every test in this file downloads weights -> excluded from CI via `-m "not weights"`.
+pytestmark = [
+    pytest.mark.weights,
+    pytest.mark.skipif(platform.system() != "Darwin" or platform.machine() != "arm64", reason="MLX runs on Apple Silicon only"),
+]
 
 from kev.checkpoint import Checkpoint, LoadOptions, mlx_available  # noqa: E402
 from kev.mlx_model import MLXDecisionModel, merge_lora  # noqa: E402

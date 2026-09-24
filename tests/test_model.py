@@ -8,6 +8,9 @@ import os
 
 import pytest
 
+# Every test in this file loads real weights -> excluded from CI via `-m "not weights"`.
+pytestmark = pytest.mark.weights
+
 SMOKE = "runs/smoke-hl/00-trial-0/checkpoint"
 
 

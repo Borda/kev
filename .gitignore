@@ -188,3 +188,9 @@ evals/documents-v2/*.jsonl
 runs/documents-v2-work/
 # hard-v1 train partition (23 MB; sha256 in evals/hard-v1/manifest.json; scripts/build_hard_v1.py regenerates the same bytes)
 evals/hard-v1/train.jsonl
+
+# JetBrains IDE
+.idea/
+
+# AI assistant
+.cache/
